@@ -1,0 +1,6 @@
+{
+  "name": "Niyaz Opticals",
+  "description": "Premium luxury eyewear direct from factory under ₹1000",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

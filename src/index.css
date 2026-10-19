@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Instrument Serif", Georgia, serif;
+}
+
+/* Hero card float — CSS-only, compositor-friendly (transform only) */
+@keyframes heroFloat0 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes heroFloat1 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes heroFloat2 {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+
+/* One continuous, fixed ambient canvas for the whole site.  The shapes are soft
+   radial light fields rather than filtered elements, keeping animation on the compositor. */
+html, body, #root { min-height: 100%; }
+body { background: #fcfbf8; }
+
+.page-progress {
+  position: fixed;
+  inset: 0 auto auto 0;
+  z-index: 100;
+  height: 3px;
+  width: 35%;
+  background: #fbe311;
+  box-shadow: 0 0 12px rgba(251, 227, 17, .75);
+  animation: page-progress 700ms ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes page-progress {
+  from { width: 0; opacity: 1; }
+  75% { width: 82%; opacity: 1; }
+  to { width: 100%; opacity: 0; }
+}
+
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+  background: #fcfbf8;
+}
+.ambient-stage {
+  position: absolute;
+  inset: -12vh -8vw;
+}
+
+.ambient-blob {
+  position: absolute;
+  width: 1500px;
+  height: 1500px;
+  border-radius: 55% 45% 62% 38% / 42% 55% 45% 58%;
+  background: radial-gradient(ellipse at center, var(--ambient-color) 0%, transparent 68%);
+  opacity: var(--ambient-opacity);
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+.ambient-blob {
+  animation: ambient-drift var(--ambient-duration) ease-in-out infinite alternate;
+}
+.ambient-blob--gold { --ambient-color: #d8af43; --ambient-opacity: .18; --ambient-duration: 52s; left: -720px; top: -500px; animation-delay: -18s; }
+.ambient-blob--ivory { --ambient-color: #f2dfb8; --ambient-opacity: .16; --ambient-duration: 58s; right: -720px; top: -380px; animation-delay: -31s; }
+.ambient-blob--cream { --ambient-color: #ead6b0; --ambient-opacity: .14; --ambient-duration: 46s; left: 13%; bottom: -820px; animation-delay: -9s; }
+.ambient-blob--amber { --ambient-color: #d69a3e; --ambient-opacity: .12; --ambient-duration: 60s; right: 5%; bottom: -710px; animation-delay: -42s; }
+.ambient-blob--pearl { --ambient-color: #fff9e8; --ambient-opacity: .18; --ambient-duration: 49s; left: 38%; top: 13%; animation-delay: -27s; }
+.ambient-blob--champagne { --ambient-color: #e3c579; --ambient-opacity: .13; --ambient-duration: 55s; left: -600px; bottom: 8%; animation-delay: -36s; }
+.ambient-blob--sand { --ambient-color: #c9a06b; --ambient-opacity: .10; --ambient-duration: 43s; right: -600px; top: 34%; animation-delay: -14s; }
+.ambient-blob--glow { --ambient-color: #fffdf7; --ambient-opacity: .18; --ambient-duration: 57s; left: 32%; bottom: -760px; animation-delay: -45s; }
+
+@keyframes ambient-drift {
+  0% { transform: translate3d(-5vw, -3vh, 0) rotate(-7deg) scale(.94); opacity: calc(var(--ambient-opacity) * .8); }
+  50% { transform: translate3d(5vw, 4vh, 0) rotate(8deg) scale(1.06); opacity: var(--ambient-opacity); }
+  100% { transform: translate3d(-2vw, 7vh, 0) rotate(-3deg) scale(.98); opacity: calc(var(--ambient-opacity) * .9); }
+}
+
+.ambient-grain {
+  position: absolute;
+  inset: 0;
+  opacity: .015;
+  mix-blend-mode: soft-light;
+  background-image: repeating-radial-gradient(circle at 0 0, rgba(63, 42, 15, .75) 0 1px, transparent 1px 3px);
+  background-size: 4px 4px;
+}
+
+/* Small, static section lights preserve the shared canvas while giving each area its own tone. */
+.ambient-accent { position: relative; isolation: isolate; background-color: transparent !important; }
+.ambient-accent::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--section-ambient); }
+.ambient-page { background-color: rgba(252, 251, 248, .48) !important; }
+.ambient-accent--collections { --section-ambient: radial-gradient(ellipse 80% 70% at 12% 20%, rgba(240, 221, 177, .22), transparent 68%); }
+.ambient-accent--hero { --section-ambient: radial-gradient(ellipse 85% 80% at 16% 26%, rgba(216, 175, 67, .12), transparent 70%); }
+.ambient-accent--products { --section-ambient: radial-gradient(ellipse 75% 65% at 50% 0%, rgba(216, 175, 67, .12), transparent 70%); }
+.ambient-accent--steps { --section-ambient: radial-gradient(ellipse 80% 65% at 85% 30%, rgba(218, 186, 132, .15), transparent 70%); }
+.ambient-accent--faq { --section-ambient: radial-gradient(ellipse 70% 60% at 70% 15%, rgba(245, 231, 198, .28), transparent 70%); }
+.ambient-accent--contact { --section-ambient: radial-gradient(ellipse 85% 70% at 60% 0%, rgba(240, 222, 186, .28), transparent 70%); }
+.ambient-accent--about { --section-ambient: radial-gradient(ellipse 75% 65% at 25% 30%, rgba(216, 175, 67, .12), transparent 70%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-blob { animation: none; }
+}

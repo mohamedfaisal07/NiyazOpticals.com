@@ -1,0 +1,8 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="256" fill="#ffffff"/>
+  <path d="M95 217C164 194 219 169 266 154C316 138 358 152 400 212L368 227C339 183 299 174 258 188C216 202 162 221 95 217Z" fill="#05060a"/>
+  <path d="M177 238L211 220C232 270 280 293 330 273C358 262 386 247 417 242C361 273 306 302 258 300C222 298 193 278 177 238Z" fill="#05060a"/>
+  <circle cx="267" cy="228" r="41" fill="#05060a"/>
+  <text x="256" y="354" text-anchor="middle" fill="#070b18" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800" letter-spacing="4">NIYAZ OPTICALS</text>
+  <text x="256" y="405" text-anchor="middle" fill="#070b18" font-family="Georgia, 'Times New Roman', serif" font-size="33" font-style="italic">make your vision clear...</text>
+</svg>
