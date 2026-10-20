@@ -35,7 +35,7 @@ const fadeUpItem: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: springEase },
+    transition: { duration: 0.28, ease: springEase },
   },
 };
 
@@ -45,7 +45,7 @@ const cardReveal: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.4, ease: springEase },
+    transition: { duration: 0.3, ease: springEase },
   },
 };
 
@@ -252,12 +252,6 @@ const FrameToFinished: React.FC = () => {
           />
         </motion.div>
 
-        {/* Connecting line (desktop) */}
-        <div
-          aria-hidden="true"
-          className="absolute left-0 right-0 top-[calc(50%+60px)] hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-neutral-200 to-transparent md:block"
-        />
-
         {/* Cards */}
         <motion.div
           ref={scrollRef}
@@ -318,18 +312,18 @@ const FrameToFinished: React.FC = () => {
    (cinematic crossfade showcase)
    ========================================== */
 const SHOWCASE_IMAGES = [
+  { index: 0, label: 'Our Factory' },
   { index: 7, label: 'Our Workshop' },
   { index: 8, label: 'Grinding Machine' },
   { index: 9, label: 'Lens Cutting' },
   { index: 10, label: 'Frame Adjustment' },
-  { index: 11, label: 'Owner Working' },
 ];
 
 const InsideWorkshop: React.FC = () => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % SHOWCASE_IMAGES.length), 4000);
+    const timer = window.setInterval(() => setActive((current) => (current + 1) % SHOWCASE_IMAGES.length), 2600);
     return () => window.clearInterval(timer);
   }, []);
 
@@ -620,7 +614,7 @@ const RealCustomers: React.FC = () => {
 
   useEffect(() => {
     if (isPaused) return;
-    const timer = window.setInterval(() => setActive((current) => (current + 1) % CUSTOMER_MOMENTS.length), 4000);
+    const timer = window.setInterval(() => setActive((current) => (current + 1) % CUSTOMER_MOMENTS.length), 2600);
     return () => window.clearInterval(timer);
   }, [isPaused]);
 
@@ -878,7 +872,6 @@ export const AboutExperience: React.FC = () => (
       <MeetTheCraftsman />
       <FrameToFinished />
       <InsideWorkshop />
-      <GalleryMarquee />
       <RealCustomers />
       <EndingSection />
     </div>

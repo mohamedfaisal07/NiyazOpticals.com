@@ -10,11 +10,7 @@ export const AmbientBackground: React.FC = () => {
         <div className="ambient-blob ambient-blob--gold" />
         <div className="ambient-blob ambient-blob--ivory" />
         <div className="ambient-blob ambient-blob--cream" />
-        <div className="ambient-blob ambient-blob--amber" />
         <div className="ambient-blob ambient-blob--pearl" />
-        <div className="ambient-blob ambient-blob--champagne" />
-        <div className="ambient-blob ambient-blob--sand" />
-        <div className="ambient-blob ambient-blob--glow" />
       </div>
     </div>
   );

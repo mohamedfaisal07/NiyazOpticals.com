@@ -12,7 +12,6 @@ import { CartDrawer } from './components/CartDrawer';
 import { RazorpayModal } from './components/RazorpayModal';
 import { AmbientBackground } from './components/AmbientBackground';
 import { PageTransition } from './components/PageTransition';
-import { OpticalCta } from './components/OpticalCta';
 
 // Sub Pages
 import { AdminLogin } from './components/AdminLogin';
@@ -81,7 +80,6 @@ const MainAppContent: React.FC = () => {
 
             {/* ── Hero ─────────────────────────────────────────────────────── */}
             <Hero />
-            <OpticalCta placement="hero" />
 
             {/* ── BOGO Promo Strip ─────────────────────────────────────────── */}
             <motion.section
@@ -142,8 +140,8 @@ const MainAppContent: React.FC = () => {
                   ].map((cat, index) => (
                     <motion.button
                       key={cat.id}
-                      animate={shouldReduceMotion ? undefined : { y: [-6, 6, -6] }}
-                      transition={{ duration: 4 + (index % 3) * 0.6, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 }}
+                      animate={canHover && !shouldReduceMotion ? { y: [-6, 6, -6] } : undefined}
+                      transition={canHover && !shouldReduceMotion ? { duration: 4 + (index % 3) * 0.6, repeat: Infinity, ease: 'easeInOut', delay: index * 0.35 } : undefined}
                       whileHover={canHover && !shouldReduceMotion ? { y: -8, scale: 1.03 } : undefined}
                       whileTap={{ scale: 0.98 }}
                       onClick={() => { prefetchPage('shop'); setSelectedCategory(cat.id); setActivePage('shop'); window.scrollTo(0, 0); }}

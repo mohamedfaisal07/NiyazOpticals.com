@@ -110,3 +110,13 @@ body { background: #fcfbf8; }
 @media (prefers-reduced-motion: reduce) {
   .ambient-blob { animation: none; }
 }
+
+/* Touch devices benefit more from stable scrolling than perpetual background
+   motion. Keep the ambient light fields, but avoid animation and large paints. */
+@media (hover: none), (pointer: coarse) {
+  .ambient-blob {
+    animation: none;
+    transform: none;
+    will-change: auto;
+  }
+}

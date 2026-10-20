@@ -165,7 +165,7 @@ export const Hero: React.FC = () => {
               <span className="rounded-full bg-[#fbe311]/35 px-2.5 py-1 text-[11px] font-bold text-[#261606]">₹899</span>
             </div>
             <div className="flex h-28 items-center justify-center px-2">
-              <img src={HERO_IMAGES.fullFrame} alt="Premium titanium full-frame eyewear" className="h-full w-full object-contain" />
+              <img src={HERO_IMAGES.fullFrame} alt="Premium titanium full-frame eyewear" width="320" height="112" fetchPriority="high" decoding="async" className="h-full w-full object-contain" />
             </div>
             <div className="mt-4 flex items-end justify-between border-t border-[#261606]/8 pt-3">
               <div>
@@ -185,7 +185,7 @@ export const Hero: React.FC = () => {
               <span className="tracking-normal text-neutral-800">₹799</span>
             </div>
             <div className="flex h-16 items-center justify-center">
-              <img src={HERO_IMAGES.sunglasses} alt="Premium polarized sunglasses" className="h-full w-full object-contain" />
+              <img src={HERO_IMAGES.sunglasses} alt="Premium polarized sunglasses" width="224" height="64" loading="lazy" decoding="async" className="h-full w-full object-contain" />
             </div>
             <p className="mt-2 border-t border-[#261606]/8 pt-2 text-center text-[10px] font-medium text-neutral-500">UV400 polarized shield</p>
           </div>
@@ -199,7 +199,7 @@ export const Hero: React.FC = () => {
               <span className="tracking-normal text-emerald-700">₹949</span>
             </div>
             <div className="flex h-14 items-center justify-center">
-              <img src={HERO_IMAGES.rimless} alt="Premium rimless eyewear" className="h-full w-full object-contain" />
+              <img src={HERO_IMAGES.rimless} alt="Premium rimless eyewear" width="208" height="56" loading="lazy" decoding="async" className="h-full w-full object-contain" />
             </div>
             <div className="mt-1 flex justify-between border-t border-[#261606]/8 pt-2 text-[9px] text-neutral-500">
               <span>Aura lite frame</span>
