@@ -65,11 +65,13 @@ body { background: #fcfbf8; }
   background: radial-gradient(ellipse at center, var(--ambient-color) 0%, transparent 68%);
   opacity: var(--ambient-opacity);
   transform: translate3d(0, 0, 0);
-  will-change: transform, opacity;
+  will-change: transform;
   backface-visibility: hidden;
 }
-.ambient-blob {
-  animation: ambient-drift var(--ambient-duration) ease-in-out infinite alternate;
+.ambient-blob { animation: none; }
+.ambient-blob--gold,
+.ambient-blob--pearl {
+  animation: ambient-drift 48s ease-in-out infinite alternate;
 }
 .ambient-blob--gold { --ambient-color: #d8af43; --ambient-opacity: .18; --ambient-duration: 52s; left: -720px; top: -500px; animation-delay: -18s; }
 .ambient-blob--ivory { --ambient-color: #f2dfb8; --ambient-opacity: .16; --ambient-duration: 58s; right: -720px; top: -380px; animation-delay: -31s; }
@@ -81,9 +83,9 @@ body { background: #fcfbf8; }
 .ambient-blob--glow { --ambient-color: #fffdf7; --ambient-opacity: .18; --ambient-duration: 57s; left: 32%; bottom: -760px; animation-delay: -45s; }
 
 @keyframes ambient-drift {
-  0% { transform: translate3d(-5vw, -3vh, 0) rotate(-7deg) scale(.94); opacity: calc(var(--ambient-opacity) * .8); }
-  50% { transform: translate3d(5vw, 4vh, 0) rotate(8deg) scale(1.06); opacity: var(--ambient-opacity); }
-  100% { transform: translate3d(-2vw, 7vh, 0) rotate(-3deg) scale(.98); opacity: calc(var(--ambient-opacity) * .9); }
+  0% { transform: translate3d(-2vw, -1vh, 0) scale(.98); }
+  50% { transform: translate3d(2vw, 2vh, 0) scale(1.02); }
+  100% { transform: translate3d(-1vw, 3vh, 0) scale(1); }
 }
 
 .ambient-grain {
@@ -115,8 +117,12 @@ body { background: #fcfbf8; }
    motion. Keep the ambient light fields, but avoid animation and large paints. */
 @media (hover: none), (pointer: coarse) {
   .ambient-blob {
-    animation: none;
-    transform: none;
-    will-change: auto;
+    animation-duration: 72s;
+  }
+
+  .ambient-blob--gold,
+  .ambient-blob--pearl {
+    width: 1100px;
+    height: 1100px;
   }
 }

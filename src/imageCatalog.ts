@@ -1,11 +1,11 @@
 import type { Product } from './types';
-import heroFullFrame from './assets/images/hero/premium-full-frame.jpg';
-import heroRimless from './assets/images/hero/premium-rimless.jpeg';
-import heroSunglasses from './assets/images/hero/premium-sunglasses.jpeg';
+import heroFullFrame from './assets/images/hero/premium-full-frame.webp';
+import heroRimless from './assets/images/hero/premium-rimless.webp';
+import heroSunglasses from './assets/images/hero/premium-sunglasses.webp';
 
 type ProductCollection = Product['collection'];
 
-const imageModules = import.meta.glob('./assets/images/products/**/*.{jpg,jpeg,png,webp,avif}', {
+const imageModules = import.meta.glob('./assets/images/products/**/*.webp', {
   eager: true,
   query: '?url',
   import: 'default',
@@ -36,7 +36,7 @@ export const HERO_IMAGES = {
   rimless: heroRimless,
 };
 
-const shopModules = import.meta.glob('./assets/images/shop/*.{jpg,jpeg,png,webp,avif}', {
+const shopModules = import.meta.glob('./assets/images/shop/*.webp', {
   eager: true,
   query: '?url',
   import: 'default',

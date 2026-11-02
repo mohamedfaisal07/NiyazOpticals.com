@@ -29,12 +29,6 @@ export const Hero: React.FC = () => {
       {/* Static ambient blobs — no JS animation */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_72%_42%,rgba(255,255,255,0.9),transparent_26%)]" />
 
-      <img
-        src="/niyaz-logo.svg"
-        alt="Niyaz Opticals"
-        className="absolute left-4 top-4 z-20 h-18 w-18 rounded-full border border-white/80 bg-white shadow-[0_16px_38px_rgba(38,22,6,0.14)] sm:left-6 sm:top-5 sm:h-20 sm:w-20 lg:left-8 lg:top-7"
-      />
-
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-8 lg:grid-cols-12 lg:gap-4">
         <div className="lg:col-span-7 lg:pr-10">
           <motion.div {...reveal(0.02)} className="inline-flex items-center gap-2 rounded-full border border-[#261606]/10 bg-white/65 px-3.5 py-2 text-[10px] font-semibold tracking-[0.16em] text-[#261606] shadow-[0_8px_30px_rgba(38,22,6,0.05)] backdrop-blur-xl">

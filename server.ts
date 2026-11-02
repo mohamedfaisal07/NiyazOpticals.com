@@ -410,6 +410,12 @@ app.get('*', (_request, response) => {
   response.sendFile(path.join(distPath, 'index.html'));
 });
 
-app.listen(port, () => {
-  console.log(`Niyaz server running on http://localhost:${port}`);
-});
+// Vercel imports the Express app as a serverless function. Keep app.listen for
+// the local Node server, but never start a second listener inside Vercel.
+if (process.env.VERCEL !== '1') {
+  app.listen(port, () => {
+    console.log(`Niyaz server running on http://localhost:${port}`);
+  });
+}
+
+export default app;

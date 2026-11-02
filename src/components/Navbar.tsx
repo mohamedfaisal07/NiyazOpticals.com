@@ -77,14 +77,17 @@ export const Navbar: React.FC = () => {
           {/* Logo */}
           <div 
             onClick={handleLogoClick}
-            className="flex flex-col cursor-pointer select-none group"
+            className="flex items-center gap-2.5 cursor-pointer select-none group"
             id="nav-logo"
           >
-            <span className="font-sans text-xl font-black tracking-widest text-[#111111] flex items-center gap-1 uppercase">
-              NIYAZ <span className="text-[#261606] font-light">OPTICALS</span>
-            </span>
-            <span className="text-[10px] font-mono tracking-widest text-[#261606] uppercase font-bold group-hover:text-yellow-600 transition-colors">
-              Factory Price. <span className="text-yellow-500 font-extrabold">Premium Vision.</span>
+            <img src="/niyaz-logo.svg" alt="Niyaz Opticals" className="h-10 w-10 shrink-0 rounded-full border border-neutral-100 bg-white sm:h-11 sm:w-11" />
+            <span className="flex flex-col">
+              <span className="font-sans text-lg font-black tracking-widest text-[#111111] sm:text-xl">
+                NIYAZ <span className="text-[#261606] font-light">OPTICALS</span>
+              </span>
+              <span className="text-[8px] font-mono tracking-widest text-[#261606] uppercase font-bold group-hover:text-yellow-600 transition-colors sm:text-[10px]">
+                Factory Price. <span className="text-yellow-500 font-extrabold">Premium Vision.</span>
+              </span>
             </span>
           </div>
 

@@ -27,7 +27,10 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onSuccess }) => {
         },
         body: JSON.stringify({ password }),
       });
-      const data = await response.json();
+      const contentType = response.headers.get('content-type') || '';
+      const data = contentType.includes('application/json')
+        ? await response.json()
+        : { error: 'Admin API is not available in this deployment.' };
 
       if (!response.ok || !data.token) {
         throw new Error(data?.error || 'Incorrect password. Try again.');
